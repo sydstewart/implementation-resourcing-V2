@@ -238,7 +238,14 @@ def calculate_projects(Scenario):
   model += system_days['Interfacing'] * A + interface_days['Interfacing']* B + server_move_days['Interfacing'] * C + upgrade_days['Interfacing'] * D <= int_constraint_days['Constraint'] # "Interfacing"
   model += system_days['System_config'] * A + interface_days['System_config']* B + server_move_days['System_config'] * C + upgrade_days['System_config'] * D <= sys_constraint_days['Constraint'] # "Systems_config"
   model += system_days['Installing'] * A + interface_days['Installing']* B + server_move_days['Installing'] * C + upgrade_days['Installing'] * D <= install_constraint_days['Constraint'] # "Installing"
-  model += D >= 15
+  # model.variablesDict()['Standalone_Interfaces'].value() <= 5
+  model += D <= 40, 'Upgrades'
+  model += C <= 15, 'Server Moves'
+  model += B <= 15, 'Standalone Interfaces'
+  model += A <= 12, 'Systems'
+  
+  # print(demand_standalone)
+  # model += demand_standalone <= 5
   
 # The problem is solved using PuLP's choice of Solver
   model.solve()
@@ -253,6 +260,7 @@ def calculate_projects(Scenario):
   no_of_standalone_interfaces= model.variablesDict()['Standalone_Interfaces'].value()
   print('No_of_standalone_interfaces = ', no_of_standalone_interfaces)
   no_of_server_moves= model.variablesDict()['Server_Moves'].value()
+  print(model.variablesDict()['Server_Moves'].value())
   print('No_of_server_moves = ',no_of_server_moves)
   no_of_upgrades= model.variablesDict()['Upgrades'].value()
   print('No_of_upgrades = ',no_of_upgrades)
@@ -273,5 +281,5 @@ def calculate_projects(Scenario):
   total_installing_days_used = system_days['Installing'] * no_of_systems + interface_days['Installing']* no_of_standalone_interfaces + server_move_days['Installing'] * no_of_server_moves + \
     upgrade_days['Installing'] * no_of_upgrades
   print('No of Installing_days used',total_installing_days_used )
-  
+  print( model.variablesDict()['Standalone_Interfaces'].value())
   # return value(model.objective),
