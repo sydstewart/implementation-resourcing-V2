@@ -20,7 +20,9 @@ class Form2(Form2Template):
     Sys_Int = self.Sys_Int.text
     Sys_Sys = self.Sys_Sys.text
     Sys_Ins= self.Sys_Ins.text
+    
     print(str(Sys_PR) + ' ' + str(Sys_Int) + ' ' + str(Sys_Sys) + ' ' + str(Sys_Ins))
+    
     SI_PR = self.SI_PR.text
     SI_Int = self.SI_Int.text
     SI_Sys = self.SI_Sys.text
@@ -35,6 +37,9 @@ class Form2(Form2Template):
     UP_Int = self.UP_Int.text
     UP_Sys = self.UP_Sys.text
     UP_Ins= self.UP_Ins.text
+
+
+
 
     
     app_tables.days_effort.add_row(projects= "Systems",
