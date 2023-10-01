@@ -1,0 +1,26 @@
+container: {type: DataRowPanel}
+components:
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: 'yes', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {column: EOBQIE}
+- type: TextBox
+  properties: {}
+  name: text_box_2
+  layout_properties: {column: ODUOEP}
+- type: TextBox
+  properties: {}
+  name: text_box_3
+  layout_properties: {column: DBHFNA}
+- type: TextBox
+  properties: {}
+  name: text_box_4
+  layout_properties: {column: TTSTBU}
+- type: TextBox
+  properties: {}
+  name: text_box_5
+  layout_properties: {column: QAKGIN}
+is_package: true

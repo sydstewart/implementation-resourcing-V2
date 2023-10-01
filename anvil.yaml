@@ -1,0 +1,166 @@
+correct_dependency_ids: {}
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/google.yml
+  client_config:
+    app_files:
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk/htmlembed?ouid=117208660525111670159
+      copyRequiresWriterPermission: false
+      python_name: ingredients
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: Syd Stewart
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: '10976438867099535844'
+        emailAddress: sydney.w.stewart@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocL9cLtLiiLBtYHPTd9qK3CTTav0si98sXRq10zSH--bRXE=s64'}
+      shared: false
+      createdDate: '2023-09-28T15:53:45.220Z'
+      id: 1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk
+      owners:
+      - displayName: Syd Stewart
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: '10976438867099535844'
+        emailAddress: sydney.w.stewart@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocL9cLtLiiLBtYHPTd9qK3CTTav0si98sXRq10zSH--bRXE=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk/parents/1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR',
+        id: 1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk
+      lastViewedByMeDate: '2023-09-28T15:55:00.152Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk/permissions/me',
+        etag: '"KgYmxCRul3cCr385CmPkbUQh464"', pendingOwner: false}
+      lastModifyingUserName: Syd Stewart
+      etag: '"MTY5NTkxNjUwMDE1Mg"'
+      kind: drive#file
+      modifiedByMeDate: '2023-09-28T15:55:00.152Z'
+      title: Ingredients
+      version: '5'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '1024'
+      alternateLink: https://docs.google.com/spreadsheets/d/1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2023-09-28T15:55:00.152Z'
+      quotaBytesUsed: '1024'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&exportFormat=ods'}
+      thumbnailLink: https://docs.google.com/feeds/vt?gd=true&id=1CLdl-ck2BwxtcvXP_URDB5TJxn0NJ5Ac2bsHETQvfEk&v=2&s=AMedNnoAAAAAZRW-ER9WUYkAAzC1bTfefhKyz-_5BLyS&sz=s220
+      ownerNames: [Syd Stewart]
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      webContentLink: https://drive.google.com/uc?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&export=download
+      embedLink: https://docs.google.com/spreadsheets/d/1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo/htmlembed?ouid=117208660525111670159
+      copyRequiresWriterPermission: false
+      python_name: copy_of_ingredients_xlsx
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: Syd Stewart
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: '10976438867099535844'
+        emailAddress: sydney.w.stewart@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocL9cLtLiiLBtYHPTd9qK3CTTav0si98sXRq10zSH--bRXE=s64'}
+      shared: false
+      createdDate: '2023-09-28T15:57:22.866Z'
+      id: 1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo
+      owners:
+      - displayName: Syd Stewart
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: '10976438867099535844'
+        emailAddress: sydney.w.stewart@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocL9cLtLiiLBtYHPTd9qK3CTTav0si98sXRq10zSH--bRXE=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo/parents/1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR',
+        id: 1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1guhjYP5QcUEZ0jrtEU5HVYzn4_4dhjxR'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo
+      lastViewedByMeDate: '2023-09-28T15:57:27.678Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo/permissions/me',
+        etag: '"Bk9KN5fQ2LfQNlN2qg1ro7Eyj0Y"', pendingOwner: false}
+      lastModifyingUserName: Syd Stewart
+      etag: '"MTY5NTkxNjY0Mjg3Mg"'
+      kind: drive#file
+      modifiedByMeDate: '2023-09-28T15:57:22.872Z'
+      title: Copy of Ingredients.xlsx
+      version: '4'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '1024'
+      alternateLink: https://docs.google.com/spreadsheets/d/1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2023-09-28T15:57:22.872Z'
+      quotaBytesUsed: '1024'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&exportFormat=ods'}
+      thumbnailLink: https://docs.google.com/feeds/vt?gd=true&id=1uBXyb0G2FAYoeyq3UVXh3mzHHa_ruUdgZ4Saq7ri1Wo&v=1&s=AMedNnoAAAAAZRW-m6v9c2L3INvhNZuLEepvTXx7cfYm&sz=s220
+      ownerNames: [Syd Stewart]
+  server_config: {}
+startup: {type: form, module: Form2}
+package_name: Implementation_Resourcing
+allow_embedding: false
+name: Clone of Blending Problem
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {title: Blending Problem}
+startup_form: null
+db_schema:
+  ingredients:
+    client: full
+    server: full
+    columns:
+    - name: Ingredient
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Cost
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: Availability
+      admin_ui: {width: 200, order: 2}
+      type: number
+    title: Ingredients
+  days_effort:
+    client: none
+    server: full
+    columns:
+    - name: projects
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Interfacing
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: Installing
+      admin_ui: {width: 200, order: 3}
+      type: number
+    title: Days_Effort
