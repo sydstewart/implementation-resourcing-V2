@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":15,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":15,"RVWSNW":11,"VTYLYB":10}'}
+  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":20,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -437,7 +437,7 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: SENQIK,ILULWJ
-      event_bindings: {pressed_enter: CON_INT_pressed_enter}
+      event_bindings: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
@@ -529,7 +529,7 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: SENQIK,ILULWJ
-      event_bindings: {pressed_enter: CON_INT_pressed_enter}
+      event_bindings: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
@@ -714,6 +714,13 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: OWSYZV,BSCVKN
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: DM_SYS
+      layout_properties: {grid_position: 'OWSYZV,RIADIC'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Standalone Interfaces, font_size: null, font: '', spacing_above: small,
@@ -723,6 +730,13 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: SKVLQR,DPNGQC
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: DM_INT
+      layout_properties: {grid_position: 'SKVLQR,ICQMJI'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Server Moves, font_size: null, font: '', spacing_above: small,
@@ -732,6 +746,14 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: NWDVRS,SNYVMR
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: DM_SM
+      layout_properties: {grid_position: 'NWDVRS,JAKTCI'}
+      event_bindings: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Upgrades, font_size: null, font: '', spacing_above: small,
@@ -741,6 +763,13 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: CUVTHZ,IMDCRE
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: DM_UP
+      layout_properties: {grid_position: 'CUVTHZ,SLVKMQ'}
   - type: ColumnPanel
     properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
