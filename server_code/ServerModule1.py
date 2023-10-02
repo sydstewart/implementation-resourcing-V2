@@ -181,25 +181,29 @@ def calculate_projects(Scenario):
   
   #Objective Function
   #get data
-  systems_selling_price = app_tables.projects.get(projects='Systems',Scenario=Scenario)
+  projects_row = app_tables.projects.get(projects='Systems',Scenario=Scenario)
   # for row in systems_selling_+price:
-  print(systems_selling_price['Selling_price'])
-  Systems_Selling_Price = systems_selling_price['Selling_price']
+  print(projects_row['Selling_price'])
+  Systems_Selling_Price = projects_row['Selling_price']
+  Systems_Demand = projects_row['Demand']
 
-  systems_selling_price = app_tables.projects.get(projects='Standalone Interfaces',Scenario=Scenario)
-  # for row in systems_selling_price:
-  print(systems_selling_price['Selling_price'])
-  Standalone_Interfaces_Selling_Price = systems_selling_price['Selling_price']
+  projects_row = app_tables.projects.get(projects='Standalone Interfaces',Scenario=Scenario)
+  # for row in projects_row:
+  print(projects_row['Selling_price'])
+  Standalone_Interfaces_Selling_Price = projects_row['Selling_price']
+  Standalone_Interfaces_Demand = projects_row['Demand']
   
-  systems_selling_price = app_tables.projects.get(projects='Server Moves',Scenario=Scenario)
-  # for row in systems_selling_price:
-  print(systems_selling_price['Selling_price'])
-  Server_Moves_Selling_Price = systems_selling_price['Selling_price']
+  projects_row = app_tables.projects.get(projects='Server Moves',Scenario=Scenario)
+  # for row in projects_row:
+  print(projects_row['Selling_price'])
+  Server_Moves_Selling_Price = projects_row['Selling_price']
+  Server_Moves_Demand = projects_row['Demand']
   
-  systems_selling_price = app_tables.projects.get(projects='Upgrades',Scenario=Scenario)
-  # for row in systems_selling_price:
-  print(systems_selling_price['Selling_price'])
-  Upgrades_Selling_Price = systems_selling_price['Selling_price']
+  projects_row = app_tables.projects.get(projects='Upgrades',Scenario=Scenario)
+  # for row in projects_row:
+  print(projects_row['Selling_price'])
+  Upgrades_Selling_Price = projects_row['Selling_price']
+  Upgrades_Demand = projects_row['Demand']
 
   # A = 1
   # B = 1
@@ -239,19 +243,24 @@ def calculate_projects(Scenario):
   model += system_days['System_config'] * A + interface_days['System_config']* B + server_move_days['System_config'] * C + upgrade_days['System_config'] * D <= sys_constraint_days['Constraint'] # "Systems_config"
   model += system_days['Installing'] * A + interface_days['Installing']* B + server_move_days['Installing'] * C + upgrade_days['Installing'] * D <= install_constraint_days['Constraint'] # "Installing"
   #Demand
-  model += D <= 40, 'Upgrades'
-  model += C <= 15, 'Server Moves'
-  model += B <= 15, 'Standalone Interfaces'
-  model += A <= 5, 'Systems'
-  
-  # print(demand_standalone)
-  # model += demand_standalone <= 5
-  
+  model += D <= Upgrades_Demand, 'Upgrades'
+  model += C <= Server_Moves_Demand, 'Server Moves'
+  model += B <= Standalone_Interfaces_Demand, 'Standalone Interfaces'
+  model += A <= Systems_Demand, 'Systems'
+
+  print('DEMAND')
+  print(''+++++++++++++++++')
+  print('Systems Demand = ',Systems_Demand)
+  print('Standalone_Interfaces_Demand = ',Standalone_Interfaces_Demand)
+  print('Server_Moves_Demand = ',Server_Moves_Demand )
+  print('Upgrades_Demand= ',Upgrades_Demand )
 # The problem is solved using PuLP's choice of Solver
   model.solve()
   
 
 # Each of the variables is printed with it's resolved optimum value
+  print('PROJECTS PROJECTED')
+  print(''+++++++++++++++++')
   for v in model.variables():
       print(v.name, "=", v.varValue)
   print("Total Sales: ", value(model.objective))

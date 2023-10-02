@@ -124,13 +124,16 @@ class Form2(Form2Template):
     for row in data:
         if row['projects'] == 'Systems':
              self.SELL_SYS.text =row['Selling_price'] 
-             self.DM
+             self.DM_SYS.text = row['Demand']
         if row['projects'] == 'Standalone Interfaces':
              self.SELL_INT.text  = row['Selling_price']
+             self.DM_INT.text = row['Demand']
         if row['projects'] == 'Server Moves':
              self.SELL_SM.text = row['Selling_price'] 
+             self.DM_SM.text = row['Demand']
         if row['projects'] == 'Upgrades': 
             self.SELL_UPG.text = row['Selling_price'] 
+            self.DM_UP.text = row['Demand']
 
 #==============================================================
   # Update Tables from Form
@@ -162,14 +165,18 @@ class Form2(Form2Template):
     constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Installing')
     constraint_row['Constraint'] = self.CON_INS.text
 
-    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Systems')
-    selling_price_row['Selling_price'] = self.SELL_SYS.text
-    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Standalone Interfaces')
-    selling_price_row['Selling_price'] = self.SELL_INT.text
-    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Server Moves')
-    selling_price_row['Selling_price'] = self.SELL_SM.text
-    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Upgrades')
-    selling_price_row['Selling_price'] = self.SELL_UPG.text
+    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Systems')
+    projects_row['Selling_price'] = self.SELL_SYS.text
+    projects_row['Demand'] = self.DM_SYS.text
+    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Standalone Interfaces')
+    projects_row['Selling_price'] = self.SELL_INT.text
+    projects_row['Demand'] = self.DM_INT.text
+    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Server Moves')
+    projects_row['Selling_price'] = self.SELL_SM.text
+    projects_row['Demand'] = self.DM_SM.text
+    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Upgrades')
+    projects_row['Selling_price'] = self.SELL_UPG.text
+    projects_row['Demand'] = self.DM_UP.text
     pass
 
   def calculate_button_click(self, **event_args):
