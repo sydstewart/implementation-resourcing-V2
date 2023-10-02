@@ -224,3 +224,11 @@ db_schema:
     - name: Scenario_Desc
       admin_ui: {width: 200}
       type: string
+  objective:
+    client: full
+    server: full
+    columns:
+    - name: objective
+      admin_ui: {width: 200, order: 0}
+      type: number
+    title: objective

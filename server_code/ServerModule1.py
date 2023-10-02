@@ -116,7 +116,12 @@ def calculate_projects(Scenario):
   print('+++++++++++++++++')
   for v in model.variables():
       print(v.name, "=", v.varValue)
+  
+  total_sales = value(model.objective)
   print("Total Sales: ", value(model.objective))
+  obj_row = app_tables.objective.get()  
+  obj_row['objective'] = total_sales
+  
   no_of_systems= model.variablesDict()['Systems'].value()
   print('No of systems = ',no_of_systems)
   no_of_standalone_interfaces= model.variablesDict()['Standalone_Interfaces'].value()
