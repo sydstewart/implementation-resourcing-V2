@@ -14,7 +14,7 @@ class Form2(Form2Template):
     self.scenario_dropdown.items= [(str(row['Scenario_Desc']), row) for row in app_tables.scenario.search(tables.order_by('Scenario_Desc'))]
     # Any code you write here will run before the form opens.
 
-  def button_1_click(self, **event_args):
+  def create_scenario_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     Sys_PR = self.Sys_PR.text
     Sys_Int = self.Sys_Int.text
@@ -37,8 +37,11 @@ class Form2(Form2Template):
     UP_Int = self.UP_Int.text
     UP_Sys = self.UP_Sys.text
     UP_Ins= self.UP_Ins.text
-
-
+    
+    DM_SYS = self.DM_SYS.text
+    DM_INT = self.DM_INT.text
+    DM_SM = self.DM_SM.text
+    DM_UP = self.DM_UP.text
 
 
     
@@ -65,6 +68,8 @@ class Form2(Form2Template):
                           System_config= UP_Sys,
                           Installing = UP_Ins)
 
+
+  
   #====================================================
   #Populate Form from Tables
   #==================================================
@@ -99,6 +104,9 @@ class Form2(Form2Template):
         self.UP_Sys.text = row['System_config']
         self.UP_Ins.text = row['Installing']
     pass
+    
+    # load constraints
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++
     data = app_tables.constraints.search(Scenario=self.scenario_dropdown.selected_value)
     for row in data:
         if row['Resource'] == 'PreReqs':
@@ -109,10 +117,14 @@ class Form2(Form2Template):
              self.CON_SYS.text = row['Constraint'] 
         if row['Resource'] == 'Installing': 
             self.CON_INS.text = row['Constraint'] 
-    data = app_tables.selling_prices.search(Scenario=self.scenario_dropdown.selected_value)
+   
+    # Load projects info
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    data = app_tables.projects.search(Scenario=self.scenario_dropdown.selected_value)
     for row in data:
         if row['projects'] == 'Systems':
              self.SELL_SYS.text =row['Selling_price'] 
+             self.DM
         if row['projects'] == 'Standalone Interfaces':
              self.SELL_INT.text  = row['Selling_price']
         if row['projects'] == 'Server Moves':
@@ -150,13 +162,13 @@ class Form2(Form2Template):
     constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Installing')
     constraint_row['Constraint'] = self.CON_INS.text
 
-    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Systems')
+    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Systems')
     selling_price_row['Selling_price'] = self.SELL_SYS.text
-    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Standalone Interfaces')
+    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Standalone Interfaces')
     selling_price_row['Selling_price'] = self.SELL_INT.text
-    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Server Moves')
+    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Server Moves')
     selling_price_row['Selling_price'] = self.SELL_SM.text
-    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Upgrades')
+    selling_price_row = app_tables.projects.get(Scenario = Scen_row, projects='Upgrades')
     selling_price_row['Selling_price'] = self.SELL_UPG.text
     pass
 
@@ -165,6 +177,10 @@ class Form2(Form2Template):
     Scen_row = app_tables.scenario.get(ScenarioID = 1)
     anvil.server.call('calculate_projects', Scen_row)
     pass
+
+  
+
+
 
 
 

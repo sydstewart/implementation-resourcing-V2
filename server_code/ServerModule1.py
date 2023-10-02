@@ -181,22 +181,22 @@ def calculate_projects(Scenario):
   
   #Objective Function
   #get data
-  systems_selling_price = app_tables.selling_prices.get(projects='Systems',Scenario=Scenario)
+  systems_selling_price = app_tables.projects.get(projects='Systems',Scenario=Scenario)
   # for row in systems_selling_+price:
   print(systems_selling_price['Selling_price'])
   Systems_Selling_Price = systems_selling_price['Selling_price']
 
-  systems_selling_price = app_tables.selling_prices.get(projects='Standalone Interfaces',Scenario=Scenario)
+  systems_selling_price = app_tables.projects.get(projects='Standalone Interfaces',Scenario=Scenario)
   # for row in systems_selling_price:
   print(systems_selling_price['Selling_price'])
   Standalone_Interfaces_Selling_Price = systems_selling_price['Selling_price']
   
-  systems_selling_price = app_tables.selling_prices.get(projects='Server Moves',Scenario=Scenario)
+  systems_selling_price = app_tables.projects.get(projects='Server Moves',Scenario=Scenario)
   # for row in systems_selling_price:
   print(systems_selling_price['Selling_price'])
   Server_Moves_Selling_Price = systems_selling_price['Selling_price']
   
-  systems_selling_price = app_tables.selling_prices.get(projects='Upgrades',Scenario=Scenario)
+  systems_selling_price = app_tables.projects.get(projects='Upgrades',Scenario=Scenario)
   # for row in systems_selling_price:
   print(systems_selling_price['Selling_price'])
   Upgrades_Selling_Price = systems_selling_price['Selling_price']
