@@ -16,26 +16,19 @@ def clear_form(self):
     self.SI_Sys.text  =None
     self.SI_Ins.text  =None 
 
-    self.CON_PR.text
-    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Interfacing')
-    constraint_row['Constraint'] = self.CON_INT.text
-    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Systems_config')
-    constraint_row['Constraint'] = self.CON_SYS.text
-    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Installing')
-    constraint_row['Constraint'] = self.CON_INS.text
+    self.CON_PR.text = None
+    self.CON_INT.text = None
+    self.CON_SYS.text = None
+    self.CON_INS.text = None
 
-    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Systems')
-    projects_row['Selling_price'] = self.SELL_SYS.text
-    projects_row['Demand'] = self.DM_SYS.text
-    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Standalone Interfaces')
-    projects_row['Selling_price'] = self.SELL_INT.text
-    projects_row['Demand'] = self.DM_INT.text
-    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Server Moves')
-    projects_row['Selling_price'] = self.SELL_SM.text
-    projects_row['Demand'] = self.DM_SM.text
-    projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Upgrades')
-    projects_row['Selling_price'] = self.SELL_UPG.text
-    projects_row['Demand'] = self.DM_UP.text
+    self.SELL_SYS.text = None
+    self.DM_SYS.text = None
+    self.SELL_INT.text = None
+    self.DM_INT.text = None
+    self.SELL_SM.text = None
+    self.DM_SM.text= None
+    self.SELL_UPG.text = None
+    self.DM_UP.text = None
   
 
 
