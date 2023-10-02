@@ -8,160 +8,7 @@ import anvil.server
 import pandas as pd
 import pulp
 from pulp import *
-@anvil.server.callable
-def ingredients():
-      # Instantiate our problem class
-      
-      model = pulp.LpProblem("Cost_minimising_blending_problem", pulp.LpMinimize)
-  
-# Construct our decision variable lists
-      sausage_types = ['economy', 'premium']
-      ingredients = ['pork', 'wheat', 'starch']
-  
-      # Each of these decision variables will have similar characteristics
-      # (lower bound of 0, continuous variables). Therefore we can use PuLP’s LpVariable object’s dict functionality, we can provide our tuple indices.
-        # 6 decision variables
-      ing_weight = pulp.LpVariable.dicts("weight kg",
-                                          ((i, j) for i in sausage_types for j in ingredients),
-                                          lowBound=0,
-                                          cat='Continuous')
-      
-      # Objective Function
-      model += (pulp.lpSum([
-                    4.32 * ing_weight[(i, 'pork')]
-                    + 2.46 * ing_weight[(i, 'wheat')]
-                    + 1.86 * ing_weight[(i, 'starch')]
-                    for i in sausage_types]))   
-               
-      # Constraints
-      # 350 economy and 500 premium sausages at 0.05 kg i.e. 50g
-      model += pulp.lpSum([ing_weight['economy', j] for j in ingredients]) == 350 * 0.05
-      model += pulp.lpSum([ing_weight['premium', j] for j in ingredients]) == 500 * 0.05
-      
-      # Economy has >= 40% pork, premium >= 60% pork
-      model += ing_weight['economy', 'pork'] >= (
-          0.4 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-      model += ing_weight['premium', 'pork'] >= (
-          0.6 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-      
-      # Sausages must be <= 25% starch
-      model += ing_weight['economy', 'starch'] <= (
-          0.25 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-      model += ing_weight['premium', 'starch'] <= (
-          0.25 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-      
-      # We have at most 30 kg of pork, 20 kg of wheat and 17 kg of starch available
-      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) <= 30
-      model += pulp.lpSum([ing_weight[i, 'wheat'] for i in sausage_types]) <= 20
-      model += pulp.lpSum([ing_weight[i, 'starch'] for i in sausage_types]) <= 17
-      
-      # We have at least 23 kg of pork to use up
-      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) >= 23
-            
-      # Solve our problem
-      model.solve()
-      pulp.LpStatus[model.status]
 
-  # print decision variables
-      decisions= {}
-      ingred = ''
-      ingredsum =''
-      for var in ing_weight:
-          var_value = ing_weight[var].varValue
-          print ("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value))
-          print(ing_weight[var], ing_weight[var].varValue)
-          # decisions.append(ing_weight[var].varValue)
-          decisions.update({ing_weight[var]:ing_weight[var].varValue})
-          ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)) +'\n')
-          ingredsum = ingredsum + ingred
-      print(' as built',decisions)
-      # ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)))
-      # ingredsum = ingredsum + ingred
-      total_cost = pulp.value(model.objective)
- 
-    
-      print ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
-      answer = ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
-      # Printing keys and values separately
-      # print("Keys:", list(ing_weight.keys()))
-      # print("Values:", list(ing_weight.values()))
-      # Printing a dictionary using a loop and the items() method
-      return ingredsum, answer
-      # for key, value in ing_weight.items():
-      #     print(key, ":", value)
-      # print (decisions)
-      # df = pd.DataFrame(decisions)
-      # print(df)
-      # # decisions= df.to_dict(orient='records')
-      # print (decisions)
-      # return ingred, decisions
-
-@anvil.server.callable
-def spreadsheet():
-    import openpyxl
-    from openpyxl import Workbook
-    
-    filename = "hello_world.xlsx"
-    
-    workbook = Workbook()
-    sheet = workbook.active
-    
-    sheet["A1"] = "hello"
-    sheet["B1"] = "world!"
-    
-    workbook.save(filename=filename)
-
-
-@anvil.server.callable
-def resources():
-
-  resources = ['PreReqs','Interfacing','System Config', 'Installing']  # j
-  project_type = ['Systems','Standalone Interfaces','Server Moves', 'Upgrades']   #i
-    
-# Each of these decision variables will have similar characteristics
-# (lower bound of 0, continuous variables). Therefore we can use PuLP’s LpVariable object’s dict functionality, we can provide our tuple indices.
-# 6 decision variables
-  project_resource = pulp.LpVariable.dicts("days_work",
-                                          ((i, j) for i in project_types for j in resources),
-                                          lowBound=0,
-                                          cat='Continuous')
-
-# Objective Function
-  model += (pulp.lpSum([
-                   project_resource[(i, 'PreReqs')]
-                    + project_resource[(i, 'Interfacing')]
-                    + project_resource[(i, 'System Config')]
-                    + project_resource[(i, 'Installing')]
-                    for i in project_types]))   
-
-   # Constraints
-      # 350 economy and 500 premium sausages at 0.05 kg i.e. 50g
-  Model += pulp.lpSum([ing_weight['economy', j] for j in ingredients]) == 350 * 0.05
-  model += pulp.lpSum([ing_weight['premium', j] for j in ingredients]) == 500 * 0.05
-      
-      # Economy has >= 40% pork, premium >= 60% pork
-  model += ing_weight['economy', 'pork'] >= (
-      0.4 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-  model += ing_weight['premium', 'pork'] >= (
-      0.6 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-  
-  # Sausages must be <= 25% starch
-  model += ing_weight['economy', 'starch'] <= (
-      0.25 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-  model += ing_weight['premium', 'starch'] <= (
-      0.25 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-  
-  # We have at most 30 kg of pork, 20 kg of wheat and 17 kg of starch available
-  model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) <= 30
-  model += pulp.lpSum([ing_weight[i, 'wheat'] for i in sausage_types]) <= 20
-  model += pulp.lpSum([ing_weight[i, 'starch'] for i in sausage_types]) <= 17
-  
-  # We have at least 23 kg of pork to use up
-  model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) >= 23
-        
-  # Solve our problem
-  model.solve()
-  pulp.LpStatus[model.status]
 
 #==========================================================================
 #Do LP calculations
@@ -226,7 +73,11 @@ def calculate_projects(Scenario):
   print('Upgrade  days')
   upgrade_days = app_tables.days_effort.get(projects='Upgrades',Scenario=Scenario)
   print(upgrade_days['PreReqs'], upgrade_days['Interfacing'], upgrade_days['System_config'],upgrade_days['Installing'])
-
+  print('+++++++++++++++++')
+  print('')
+  
+  print('CONSTRAINTS')
+  print('+++++++++++++++++')
   pr_constraint_days = app_tables.constraints.get(Resource='PreReqs',Scenario=Scenario)
   print('Pre Req Constraint Days pa =', pr_constraint_days['Constraint'])
   int_constraint_days = app_tables.constraints.get(Resource='Interfacing',Scenario=Scenario)
@@ -235,7 +86,8 @@ def calculate_projects(Scenario):
   print('System Config Constraint Days pa =',sys_constraint_days['Constraint'])
   install_constraint_days = app_tables.constraints.get(Resource='Installing',Scenario=Scenario)
   print('Installing Constraint Days pa =',install_constraint_days['Constraint'])
-
+  print('+++++++++++++++++')
+  print('')
 # Create constraints
 
   model += system_days['PreReqs'] * A + interface_days['PreReqs']* B + server_move_days['PreReqs'] * C + upgrade_days['PreReqs'] * D <= pr_constraint_days['Constraint']  # "PreReqs"
@@ -247,20 +99,21 @@ def calculate_projects(Scenario):
   model += C <= Server_Moves_Demand, 'Server Moves'
   model += B <= Standalone_Interfaces_Demand, 'Standalone Interfaces'
   model += A <= Systems_Demand, 'Systems'
-
+  
+  print('')
   print('DEMAND')
-  print(''+++++++++++++++++')
+  print('+++++++++++++++++')
   print('Systems Demand = ',Systems_Demand)
   print('Standalone_Interfaces_Demand = ',Standalone_Interfaces_Demand)
   print('Server_Moves_Demand = ',Server_Moves_Demand )
   print('Upgrades_Demand= ',Upgrades_Demand )
 # The problem is solved using PuLP's choice of Solver
   model.solve()
-  
+  print('')
 
 # Each of the variables is printed with it's resolved optimum value
   print('PROJECTS PROJECTED')
-  print(''+++++++++++++++++')
+  print('+++++++++++++++++')
   for v in model.variables():
       print(v.name, "=", v.varValue)
   print("Total Sales: ", value(model.objective))
@@ -273,7 +126,21 @@ def calculate_projects(Scenario):
   print('No_of_server_moves = ',no_of_server_moves)
   no_of_upgrades= model.variablesDict()['Upgrades'].value()
   print('No_of_upgrades = ',no_of_upgrades)
+  print('')
   
+# Update projects table with Projected projects
+  projects_row = app_tables.projects.get(Scenario = Scenario, projects='Systems')
+  projects_row['Projected'] = no_of_systems
+  projects_row = app_tables.projects.get(Scenario = Scenario, projects='Standalone Interfaces')
+  projects_row['Projected'] = no_of_standalone_interfaces
+  projects_row = app_tables.projects.get(Scenario = Scenario, projects='Server Moves')
+  projects_row['Projected'] = no_of_server_moves
+  projects_row = app_tables.projects.get(Scenario = Scenario, projects='Upgrades')
+  projects_row['Projected'] = no_of_upgrades
+ 
+  
+  print('DAYS USED')
+  print('++++++++++++++++++++++++')
   total_pre_days_used = (system_days['PreReqs'] * no_of_systems + interface_days['PreReqs']* no_of_standalone_interfaces + server_move_days['PreReqs'] * no_of_server_moves +  \
     upgrade_days['PreReqs'] * no_of_upgrades )
   print('No of Pre Req days used',total_pre_days_used )
@@ -292,3 +159,13 @@ def calculate_projects(Scenario):
   print('No of Installing_days used',total_installing_days_used )
   # print( model.variablesDict()['Standalone_Interfaces'].value())
   # return value(model.objective),
+
+# Update Constraints table with used
+  Constraints_row = app_tables.constraints.get(Scenario = Scenario, Resource='PreReqs')
+  Constraints_row['Used'] = total_pre_days_used
+  Constraints_row = app_tables.constraints.get(Scenario = Scenario, Resource='Interfacing')
+  Constraints_row['Used'] = total_interfacing_days_used
+  Constraints_row = app_tables.constraints.get(Scenario = Scenario, Resource='Systems_config')
+  Constraints_row['Used'] = total_system_config_days_used
+  Constraints_row = app_tables.constraints.get(Scenario = Scenario, Resource='Installing')
+  Constraints_row['Used'] = total_installing_days_used 

@@ -507,7 +507,7 @@ components:
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
-      name: CON_PR_copy
+      name: PR_USED
       layout_properties:
         col_widths: {}
         grid_position: EEOKZJ,MXCIQC
@@ -525,7 +525,7 @@ components:
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
-      name: CON_INT_copy
+      name: INT_USED
       layout_properties:
         col_widths: {}
         grid_position: SENQIK,ILULWJ
@@ -544,7 +544,7 @@ components:
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
-      name: CON_SYS_copy
+      name: SYS_USED
       layout_properties:
         col_widths: {}
         grid_position: YHPYJL,YCRCPZ
@@ -562,7 +562,7 @@ components:
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
-      name: CON_INS_copy
+      name: INS_USED
       layout_properties:
         col_widths: {}
         grid_position: RSCKJJ,SFSTRZ

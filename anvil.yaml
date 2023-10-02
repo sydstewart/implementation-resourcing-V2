@@ -151,7 +151,7 @@ db_schema:
       type: number
     title: Ingredients
   days_effort:
-    client: none
+    client: full
     server: full
     columns:
     - name: projects
@@ -163,4 +163,64 @@ db_schema:
     - name: Installing
       admin_ui: {width: 200, order: 3}
       type: number
+    - name: PreReqs
+      admin_ui: {width: 200}
+      type: number
+    - name: Scenario
+      admin_ui: {width: 200}
+      type: link_single
+      target: scenario
+    - name: System_config
+      admin_ui: {width: 200}
+      type: number
     title: Days_Effort
+  constraints:
+    title: constraints
+    client: full
+    server: full
+    columns:
+    - name: Resource
+      admin_ui: {width: 200}
+      type: string
+    - name: Constraint
+      admin_ui: {width: 200}
+      type: number
+    - name: Used
+      admin_ui: {width: 200}
+      type: number
+    - name: Scenario
+      admin_ui: {width: 200}
+      type: link_single
+      target: scenario
+  projects:
+    title: projects
+    client: full
+    server: full
+    columns:
+    - name: projects
+      admin_ui: {width: 200}
+      type: string
+    - name: Selling_price
+      admin_ui: {width: 200}
+      type: number
+    - name: Demand
+      admin_ui: {width: 200}
+      type: number
+    - name: Projected
+      admin_ui: {width: 200}
+      type: number
+    - name: Scenario
+      admin_ui: {width: 200}
+      type: link_single
+      target: scenario
+  scenario:
+    title: Scenario
+    client: full
+    server: full
+    columns:
+    - name: ScenarioID
+      admin_ui: {width: 200}
+      type: number
+    - name: Scenario_Desc
+      admin_ui: {width: 200}
+      type: string
