@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":18,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10,"SQHJWP":10,"LVYPQX":55,"MBVIQZ":3}'}
+  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":16,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"RVWSNW":11,"VTYLYB":10,"SQHJWP":10,"LVYPQX":55,"MBVIQZ":3,"QDJKQB":10}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -623,59 +623,10 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: AYBYMY,JDSDFO
-  - type: Label
-    properties: {}
-    name: label_8
-    layout_properties: {grid_position: 'AWVYHX,SQHJWP', full_width_row: true}
-  - type: ColumnPanel
-    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
-    name: card_4
-    layout_properties: {grid_position: 'AWVYHX,XMYQOK GKQFWR,GGUOPT', full_width_row: true}
-    components:
-    - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: Objectve Throughput (£) Maximised, font_size: null, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: true, underline: false, icon: ''}
-      name: label_6
-      layout_properties: {grid_position: 'JKIDSJ,VIXTXE'}
-    - type: TextBox
-      properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
-      name: Objective
-      layout_properties: {grid_position: 'IWUQVC,YDRJIB'}
-  - type: Button
-    properties: {role: raised, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Calculate Throughput and No. of Projects,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#f0eaea', bold: false, underline: false, icon: 'fa:calculator'}
-    name: calculate_button
-    layout_properties: {grid_position: 'AWVYHX,XMYQOK WWLIIP,XBTBOA', full_width_row: true}
-    event_bindings: {click: calculate_button_click}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: false, text: Create Scenario, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: create_scenario_button
-    layout_properties: {grid_position: 'AWVYHX,XMYQOK BLKMPM,FTVMMP'}
-    event_bindings: {click: create_scenario_button_click}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: false, text: Update Scenario, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: update_scenario_button
-    layout_properties: {grid_position: 'AWVYHX,XMYQOK MXUFBY,JBMDVS'}
-    event_bindings: {click: update_scenario_button_click}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{}'}
     name: card_6
-    layout_properties: {grid_position: 'AWVYHX,HAGAMO', full_width_row: true}
+    layout_properties: {grid_position: 'AWVYHX,SQHJWP', full_width_row: true}
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -752,6 +703,55 @@ components:
         background: '', bold: false, underline: false}
       name: DM_UP
       layout_properties: {grid_position: 'CUVTHZ,SLVKMQ'}
+  - type: Label
+    properties: {}
+    name: label_8
+    layout_properties: {grid_position: 'AWVYHX,QDJKQB', full_width_row: true}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_4
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK GKQFWR,GGUOPT', full_width_row: true}
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: Objectve Throughput (£) Maximised, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      name: label_6
+      layout_properties: {grid_position: 'JKIDSJ,VIXTXE'}
+    - type: TextBox
+      properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: Objective
+      layout_properties: {grid_position: 'IWUQVC,YDRJIB'}
+  - type: Button
+    properties: {role: raised, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Calculate Throughput and No. of Projects,
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '#f0eaea', bold: false, underline: false, icon: 'fa:calculator'}
+    name: calculate_button
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK WWLIIP,XBTBOA', full_width_row: true}
+    event_bindings: {click: calculate_button_click}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: false, text: Create Scenario, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: create_scenario_button
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK BLKMPM,FTVMMP'}
+    event_bindings: {click: create_scenario_button_click}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: false, text: Update Scenario, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: update_scenario_button
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK MXUFBY,JBMDVS'}
+    event_bindings: {click: update_scenario_button_click}
   - type: ColumnPanel
     properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
