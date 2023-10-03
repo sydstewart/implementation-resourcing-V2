@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":13,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10,"SQHJWP":15}'}
+  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":18,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10,"SQHJWP":10}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -15,14 +15,6 @@ components:
       italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'JYTRTY,LVYPQX', full_width_row: true}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Calculate No. of Projects, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: calculate_button
-    layout_properties: {grid_position: 'JYTRTY,EEJHYW', full_width_row: true}
-    event_bindings: {click: calculate_button_click}
   - type: DropDown
     properties:
       role: null
@@ -666,7 +658,7 @@ components:
     layout_properties: {grid_position: 'AWVYHX,XMYQOK GKQFWR,GGUOPT', full_width_row: true}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: Objectve Throughput (£) Maximised, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: true, underline: false, icon: ''}
@@ -679,6 +671,14 @@ components:
         background: '', bold: false, underline: false}
       name: Objective
       layout_properties: {grid_position: 'IWUQVC,YDRJIB'}
+  - type: Button
+    properties: {role: raised, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Calculate Throughput and No. of Projects,
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '#f0eaea', bold: false, underline: false, icon: 'fa:calculator'}
+    name: calculate_button
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK WWLIIP,XBTBOA', full_width_row: true}
+    event_bindings: {click: calculate_button_click}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: false, text: Create Scenario, font_size: null, font: '',
