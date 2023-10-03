@@ -131,9 +131,9 @@ services:
 startup: {type: form, module: Form2}
 package_name: Implementation_Resourcing
 allow_embedding: false
-name: Clone of Blending Problem
+name: Implementation Project Resourcing
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Blending Problem}
+metadata: {title: Implementation Project Resourcing}
 startup_form: null
 db_schema:
   ingredients:
