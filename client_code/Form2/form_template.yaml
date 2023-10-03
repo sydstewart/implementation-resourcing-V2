@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":20,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10}'}
+  properties: {col_widths: '{"SKPBMK":10,"LBSBIO":10,"XMYQOK":13,"SHXIEL":15,"YMENPR":15,"CELVYP":15,"QSXTEE":15,"HAGAMO":10,"RVWSNW":11,"VTYLYB":10,"SQHJWP":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -654,6 +654,10 @@ components:
       layout_properties:
         col_widths: {}
         grid_position: AYBYMY,JDSDFO
+  - type: Label
+    properties: {}
+    name: label_8
+    layout_properties: {grid_position: 'AWVYHX,SQHJWP', full_width_row: true}
   - type: ColumnPanel
     properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -663,15 +667,15 @@ components:
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Objectve Throughput, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+        visible: true, text: Objectve Throughput (£) Maximised, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
       name: label_6
       layout_properties: {grid_position: 'JKIDSJ,VIXTXE'}
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: Objective
       layout_properties: {grid_position: 'IWUQVC,YDRJIB'}
@@ -721,6 +725,7 @@ components:
         background: '', bold: false, underline: false}
       name: DM_SYS
       layout_properties: {grid_position: 'OWSYZV,RIADIC'}
+      event_bindings: {pressed_enter: DM_SYS_pressed_enter}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Standalone Interfaces, font_size: null, font: '', spacing_above: small,

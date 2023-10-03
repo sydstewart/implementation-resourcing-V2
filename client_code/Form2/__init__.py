@@ -83,7 +83,9 @@ class Form2(Form2Template):
  # Load Objective
     obj_row =  app_tables.objective.get()
     self.Objective.text = obj_row['objective']
-    
+    # self.Objective.text ='£' + str( self.Objective.text)
+    # self.Objective.text = {:,.2f}".format(self.Objective.text ))
+    # "$" + str(round(float(dollar_value),2)) ${:,.2f}".format(total_amount))
   def create_scenario_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     Sys_PR = self.Sys_PR.text
@@ -202,7 +204,20 @@ class Form2(Form2Template):
     days_effort_row['PreReqs'] = self.SI_PR.text
     days_effort_row['Interfacing'] = self.SI_Int.text 
     days_effort_row['System_config'] = self.SI_Sys.text   
-    days_effort_row['Installing'] = self.SI_Ins.text   
+    days_effort_row['Installing'] = self.SI_Ins.text  
+    
+    days_effort_row = app_tables.days_effort.get(Scenario = Scen_row, projects = 'Server Moves')
+    days_effort_row['PreReqs'] = self.SM_PR.text
+    days_effort_row['Interfacing'] = self.SM_Int.text 
+    days_effort_row['System_config'] = self.SM_Sys.text   
+    days_effort_row['Installing'] = self.SM_Ins.text
+    
+    days_effort_row = app_tables.days_effort.get(Scenario = Scen_row, projects = 'Upgrades')
+    days_effort_row['PreReqs'] = self.UP_PR.text
+    days_effort_row['Interfacing'] = self.UP_Int.text 
+    days_effort_row['System_config'] = self.UP_Sys.text   
+    days_effort_row['Installing'] = self.UP_Ins.text   
+    
 
     constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='PreReqs')
     constraint_row['Constraint'] = self.CON_PR.text
@@ -225,7 +240,7 @@ class Form2(Form2Template):
     projects_row = app_tables.projects.get(Scenario = Scen_row, projects='Upgrades')
     projects_row['Selling_price'] = self.SELL_UPG.text
     projects_row['Demand'] = self.DM_UP.text
-  
+
     anvil.server.call('calculate_projects', Scen_row)
     Scen_row = app_tables.scenario.get(ScenarioID = 1)
     data = app_tables.days_effort.search(Scenario=Scen_row)
@@ -293,9 +308,56 @@ class Form2(Form2Template):
             self.SELL_UPG.text = row['Selling_price'] 
             self.DM_UP.text = row['Demand']
             self.UPG_PRJ.text = row['Projected']
-    
 
+      # Set background if deficiency          
+        if self.SYS_PRJ.text < self.DM_SYS.text:
+              self.SYS_PRJ.background = '#faebeb'
+        else: 
+              self.SYS_PRJ.background = ''
+          
+        if self.INT_PRJ.text < self.DM_INT.text:
+              self.INT_PRJ.background = '#faebeb'
+        else: 
+              self.INT_PRJ.background = ''
+          
+        if self.SM_PRJ.text < self.DM_SM.text:
+              self.SM_PRJ.background = '#faebeb'
+        else: 
+              self.SM_PRJ.background = ''
+          
+        if self.UPG_PRJ.text < self.DM_UP.text:
+              self.UPG_PRJ.background = '#faebeb'
+        else: 
+              self.UPG_PRJ.background = ''
+       
+        if self.PR_USED.text == self.CON_PR.text:
+              self.PR_USED.background = '#faebeb'
+        else: 
+              self.PR_USED.background = ''
+          
+        if self.INT_USED.text == self.CON_INT.text:
+              self.INT_USED.background = '#faebeb'
+        else: 
+              self.INT_USED.background = ''
+          
+        if self.SYS_USED.text == self.CON_SYS.text:
+              self.SYS_USED.background = '#faebeb'
+        else: 
+              self.SYS_USED.background = ''
+          
+        if self.INS_USED.text >= 0.95 * self.CON_INS.text:
+              self.INS_USED.background = '#faebeb'
+        else: 
+              self.INS_USED.background = ''
     pass
+# Load Objective
+    obj_row =  app_tables.objective.get()
+    self.Objective.text = obj_row['objective']
+'
+ 
+     
+
+
 
   
 
