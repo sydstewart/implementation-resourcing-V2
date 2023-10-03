@@ -351,11 +351,11 @@ class Form2(Form2Template):
         else: 
               self.INS_USED.background = ''
     pass
-# Load Objective
+# Load Objective and format for currency
     obj_row =  app_tables.objective.get()
     obj_num =  obj_row['objective']
     self.Objective.text = '£' + str('{:,}'.format(obj_num))
-'
+
  
      
 
