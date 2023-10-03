@@ -82,7 +82,8 @@ class Form2(Form2Template):
             self.UPG_PRJ.text = row['Projected']
  # Load Objective
     obj_row =  app_tables.objective.get()
-    self.Objective.text = obj_row['objective']
+    obj_num =  obj_row['objective']
+    self.Objective.text = '£' + str('{:,}'.format(obj_num))
     # self.Objective.text ='£' + str( self.Objective.text)
     # self.Objective.text = {:,.2f}".format(self.Objective.text ))
     # "$" + str(round(float(dollar_value),2)) ${:,.2f}".format(total_amount))
@@ -352,7 +353,8 @@ class Form2(Form2Template):
     pass
 # Load Objective
     obj_row =  app_tables.objective.get()
-    self.Objective.text = obj_row['objective']
+    obj_num =  obj_row['objective']
+    self.Objective.text = '£' + str('{:,}'.format(obj_num))
 '
  
      
