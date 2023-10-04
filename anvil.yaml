@@ -133,7 +133,8 @@ package_name: Implementation_Resourcing
 allow_embedding: false
 name: Implementation Project Resourcing
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Implementation Project Resourcing, logo_img: 'asset:4S logo small.png'}
+metadata: {title: Implementation Project Resourcing, logo_img: 'asset:4S logo small.png',
+  description: This app allows you to work out the maximum throughput and the no of diffent project types that can be completed for a set number of resources}
 startup_form: null
 db_schema:
   ingredients:
