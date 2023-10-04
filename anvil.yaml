@@ -133,7 +133,7 @@ package_name: Implementation_Resourcing
 allow_embedding: false
 name: Implementation Project Resourcing
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Implementation Project Resourcing}
+metadata: {title: Implementation Project Resourcing, logo_img: 'asset:4S logo small.png'}
 startup_form: null
 db_schema:
   ingredients:

@@ -66,7 +66,7 @@ components:
       layout_properties: {grid_position: 'SRUSLR,USNEXM'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
+        visible: true, text: System Config*, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_4_copy_4
@@ -363,7 +363,7 @@ components:
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Resource Constraints Person Days per annum (40 weeks),
+        visible: true, text: Resource Constraints Person Days per annum (40 weeks)**,
         font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: '', bold: true, underline: false, icon: ''}
       name: label_2_copy_4
@@ -836,15 +836,24 @@ components:
         grid_position: FPHIXR,EAQQSR
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: e.g. 2 people for 3 days per week for 40 weeks per annum = 240 days,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
+      visible: true, text: '** e.g. 2 people for 3 days per week for 40 weeks per
+        annum = 240 days', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
     name: label_5
     layout_properties: {grid_position: 'JPVIAQ,QJVDIJ', full_width_row: true}
   - type: Label
     properties: {}
     name: label_9
     layout_properties: {grid_position: 'JPVIAQ,EYDMBB'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '*Note, for Systems Add Data Migration effort to System
+        Config', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_8
+    layout_properties: {grid_position: 'TVCVFU,FFESMG', full_width_row: true}
 - type: FlowPanel
   properties: {}
   name: navbar_links
